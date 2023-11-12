@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:layout_marginTop="76dp"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:clipToPadding="false">
+
+    <ImageView
+        android:id="@+id/mainImage"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:src="@drawable/get_started_1"
+        android:scaleType="centerCrop" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:background="#fff"
+        android:shadowColor="#000"
+        android:shadowDx="1"
+        android:shadowDy="2"
+        android:shadowRadius="6"
+        android:layout_marginTop="24dp"
+        android:layout_gravity="center">
+
+        <TextView
+            android:id="@+id/sectionTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:lineSpacingExtra="8sp"
+            android:text="        Effortless Employees Management"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/sectionDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Streamline task prioritization and daily assignments, simplifying the process for your workforce."
+            android:textColor="#4A4646"
+            android:textSize="14sp"
+            android:fontFamily="sans-serif"
+            android:textAlignment="center" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/getStartedButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#7963E5"
+        android:elevation="6dp"
+        android:fontFamily="sans-serif"
+        android:paddingStart="20dp"
+        android:paddingTop="15dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="15dp"
+        android:radius="10dp"
+        android:text="Next"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp" />
+</LinearLayout>
