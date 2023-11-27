@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -18,6 +19,7 @@
         android:layout_centerHorizontal="true"
         android:text="Edit Project"
         android:textSize="24sp" />
+
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -46,14 +48,16 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:id="@+id/updateDateText"
-        android:hint=" Date of creation"
+        android:hint="Date of creation"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/updateNameText"
         android:background="@drawable/lavender_border"
         android:textSize="20sp"
         android:layout_marginTop="30dp"
         android:maxLines="1"
-        android:fontFamily="@font/poppins"/>
-
+        android:fontFamily="@font/poppins"
+        android:focusable="false"
+    android:clickable="true"
+    android:onClick="showDatePickerDialog"/> <!-- Handle click event -->
 
 </RelativeLayout>

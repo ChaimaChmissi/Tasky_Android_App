@@ -1,32 +1,56 @@
 package com.example.employeesmanagementsys
-
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.employeesmanagementsys.databinding.ActivityAddEmployeeBinding
 
+import androidx.lifecycle.Observer
+
 class AddEmployeeActivity : AppCompatActivity() {
+
     private lateinit var binding: ActivityAddEmployeeBinding
-    private lateinit var db: EmployeesDatabasesHelper
+    private lateinit var employeeRepository: EmployeeRepository
+    private var employeeId: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAddEmployeeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        db = EmployeesDatabasesHelper(this)
+        employeeRepository = EmployeeRepository()
 
+        // Observe changes in the employee list
+        employeeRepository.employeeListLiveData.observe(this, Observer { employees ->
+            // Update your UI or perform any other actions with the updated employee list
+            Toast.makeText(this, "Employee list refreshed automatically", Toast.LENGTH_SHORT).show()
+        })
         binding.saveButton.setOnClickListener {
             val employeeName = binding.NameText.text.toString()
             val employeeEmail = binding.MailText.text.toString()
             val employeePassword = binding.PasswText.text.toString()
 
             if (isValidInput(employeeName, employeeEmail, employeePassword)) {
-                val employee = Employee(0, employeeName, employeeEmail, employeePassword)
-                db.insertEmployee(employee)
-                finish()
-                Toast.makeText(this, "Employee Saved", Toast.LENGTH_SHORT).show()
+                val employee = Employee(employeeId, employeeName, employeeEmail, employeePassword)
+
+                // Call the addEmployee method in the repository to save the employee
+                employeeRepository.addEmployee(
+                    employee,
+                    onSuccess = {
+                        // Employee added successfully
+                        Toast.makeText(this, "Employee added successfully", Toast.LENGTH_SHORT).show()
+
+                        // Navigate back to the employee list activity
+                        val intent = Intent(this, EmployeeFragment::class.java)
+                        startActivity(intent)
+                        finish() // Optional: Finish the current activity if you don't want to go back to it
+                    },
+                    onError = { errorMessage ->
+                        // Handle the error, show a toast, log, or perform other error handling
+                        Toast.makeText(this, "Error adding employee: $errorMessage", Toast.LENGTH_SHORT).show()
+                    }
+                )
             }
         }
     }
@@ -71,5 +95,6 @@ class AddEmployeeActivity : AppCompatActivity() {
         val emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"
         return email.matches(emailPattern.toRegex())
     }
-}
 
+
+}

@@ -27,7 +27,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/poppins"
-                android:text="Projects' Liste"
+                android:text="Projects' List"
                 android:layout_centerHorizontal="true"
                 android:textColor="@color/lavender"
                 android:layout_marginStart="18dp"

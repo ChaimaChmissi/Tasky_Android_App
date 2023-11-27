@@ -7,10 +7,10 @@
     app:cardElevation="4dp"
     app:cardCornerRadius="8dp"
     app:cardUseCompatPadding="true">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:orientation="vertical"
         android:padding="16dp">
 
@@ -21,36 +21,39 @@
             android:layout_marginTop="8dp">
 
             <TextView
+                android:id="@+id/TitleTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/NameTextView"
-                android:text="proj1"
+                android:text="task1"
                 android:fontFamily="@font/poppins"
                 android:textColor="@color/lavender"
                 android:textSize="18sp"
-                android:textStyle="bold"/>
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:id="@+id/updateButton"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="30dp"
-                android:src="@drawable/edit_icon"/>
+                android:textStyle="bold" />
+
 
             <ImageView
+                android:id="@+id/updateButton"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:id="@+id/deleteButton"
                 android:layout_alignParentEnd="true"
-                android:src="@drawable/trash_2"/>
+                android:layout_marginEnd="30dp"
+                android:src="@drawable/edit_icon" />
+
+            <ImageView
+                android:id="@+id/deleteButton"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/trash_2" />
         </RelativeLayout>
+
         <TextView
+            android:id="@+id/DescriptionTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/DateTextView"
             android:fontFamily="@font/poppins"
             android:maxLines="3"
             android:layout_marginTop="4dp"
-            android:text="salma"/>
+            android:text="description" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UpdateTaskActivity"
+    android:padding="16dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/updateTaskHead"
+        android:layout_width="201dp"
+        android:layout_height="75dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/poppins"
+        android:text="Add New Task"
+        android:textSize="24sp"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/updateSaveButton"
+        android:src="@drawable/baseline_done_24"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/updateTaskHead"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="6dp"/>
+
+    <EditText
+        android:id="@+id/updateTitleText"
+        android:layout_width="378dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/updateTaskHead"
+        android:layout_marginTop="52dp"
+        android:background="@drawable/lavender_border"
+        android:fontFamily="@font/poppins"
+        android:hint="Title"
+        android:maxLines="1"
+        android:padding="12dp"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/updateDescriptionText"
+        android:layout_width="395dp"
+        android:layout_height="165dp"
+        android:layout_below="@id/updateTitleText"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp"
+        android:layout_marginBottom="364dp"
+        android:background="@drawable/lavender_border"
+        android:fontFamily="@font/poppins"
+        android:hint=" Description..."
+        android:maxLines="1"
+        android:textSize="20sp" />
+
+    <!-- Spinner for Project -->
+    <Spinner
+        android:id="@+id/update_task_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="48dp"
+        android:layout_marginBottom="298dp"
+        android:backgroundTint="#935FE4" />
+
+    <!-- Spinner for Employee -->
+    <Spinner
+        android:id="@+id/update_task_spinner2"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="48dp"
+        android:layout_marginBottom="229dp"
+        android:backgroundTint="#7E41DF" />
+
+    <!-- TextViews for displaying Project and Employee information -->
+    <TextView
+        android:id="@+id/projectInfoTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/update_task_spinner2"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/poppins"
+        android:text="Project: "
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/employeeInfoTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/projectInfoTextView"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/poppins"
+        android:text="Employee: "
+        android:textSize="18sp" />
+</RelativeLayout>

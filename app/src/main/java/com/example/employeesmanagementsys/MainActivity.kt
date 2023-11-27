@@ -42,21 +42,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         drawLayout.addDrawerListener(toggle)
         toggle.syncState()
 /*here*/
-        if (savedInstanceState == null) {
-            // Check for the extra indicating which fragment to open
-            val fragmentToOpen = intent.getStringExtra("fragmentToOpen")
-
-            if (fragmentToOpen == "projectFragment") {
-                replaceFragment(ProjectFragment())
-                navigationView.setCheckedItem(R.id.nav_project)
-            }
-        }
-        /*end*/
-
-        if (savedInstanceState == null){
-            replaceFragment(ProjectFragment())
-            navigationView.setCheckedItem(R.id.nav_project)
-        }
 
 
         //from here add employee
@@ -66,9 +51,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
-            R.id.nav_project -> replaceFragment(ProjectFragment())
             R.id.nav_employee -> replaceFragment(EmployeeFragment())
-            R.id.nav_task -> replaceFragment(TaskFragment())
             R.id.nav_logout -> Toast.makeText(this, "LogOut", Toast.LENGTH_SHORT).show()
 
         }

@@ -4,6 +4,7 @@ package com.example.employeesmanagementsys
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,18 +12,14 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-
 class EmployeesAdapter(
     private var employees: List<Employee>,
     private val context: Context
 ) : RecyclerView.Adapter<EmployeesAdapter.EmployeeViewHolder>() {
 
-    private val db: EmployeesDatabasesHelper = EmployeesDatabasesHelper(context)
-
     class EmployeeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val NameTextView: TextView = itemView.findViewById(R.id.NameTextView)
         val MailTextView: TextView = itemView.findViewById(R.id.MailTextView)
-
         val updateButton: ImageView = itemView.findViewById(R.id.updateButton)
         val deleteButton: ImageView = itemView.findViewById(R.id.deleteButton)
     }
@@ -38,17 +35,12 @@ class EmployeesAdapter(
         holder.MailTextView.text = employee.employee_mail
 
         holder.updateButton.setOnClickListener {
-            val intent = Intent(holder.itemView.context, UpdateEmployeeActivity::class.java).apply {
-                putExtra("employee_id", employee.id)
-            }
-            holder.itemView.context.startActivity(intent)
-        }
-
-        holder.deleteButton.setOnClickListener {
-            showDeleteConfirmationDialog(employee)
+            // Open UpdateEmployeeActivity with the employee ID
+            val intent = Intent(context, UpdateEmployeeActivity::class.java)
+            intent.putExtra("employee_id", employee.id)
+            context.startActivity(intent)
         }
     }
-
     override fun getItemCount(): Int {
         return employees.size
     }
@@ -56,18 +48,5 @@ class EmployeesAdapter(
     fun refreshData(newEmployees: List<Employee>) {
         employees = newEmployees
         notifyDataSetChanged()
-    }
-
-    private fun showDeleteConfirmationDialog(employee: Employee) {
-        val dialogBuilder = AlertDialog.Builder(context)
-        dialogBuilder.setTitle("Delete Employee")
-        dialogBuilder.setMessage("Are you sure you want to delete this employee?")
-        dialogBuilder.setPositiveButton("Delete") { _, _ ->
-            db.deleteEmployee(employee.id)
-            refreshData(db.getAllEmployees())
-            Toast.makeText(context, "Employee Deleted", Toast.LENGTH_SHORT).show()
-        }
-        dialogBuilder.setNegativeButton("Cancel") { _, _ -> }
-        dialogBuilder.create().show()
     }
 }
