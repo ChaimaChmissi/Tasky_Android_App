@@ -20,7 +20,7 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/updateSaveButton"
+        android:id="@+id/updateButton"
         android:src="@drawable/baseline_done_24"
         android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/editEmployeeHead"
@@ -54,7 +54,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:id="@+id/updatePasswText"
+        android:id="@+id/updatePasswordText"
         android:hint="Password"
         android:layout_below="@id/updateMailText"
         android:background="@drawable/lavender_border"

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+    android:background="#EDE7F8"
+        tools:context=".ProjectEmployActivity">
+
+        <LinearLayout
+            android:id="@+id/container"
+            android:layout_width="370dp"
+            android:layout_height="670dp"
+            android:layout_centerInParent="true"
+            android:orientation="vertical"
+            android:padding="1px">
+
+            <TextView
+                android:id="@+id/ListProj"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/poppins"
+                android:text="Projects' List"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/lavender"
+                android:layout_marginStart="18dp"
+                android:textSize="24sp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="50dp"
+                android:padding="16dp"
+                android:id="@+id/projectRecyclerView"/>
+
+
+
+        </LinearLayout>
+
+
+    <RelativeLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:gravity="end"
+            android:layout_marginEnd="20dp"
+            android:layout_above="@id/settingFab"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/rateLL"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="10dp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="3dp"
+                    app:cardElevation="2dp"
+                    app:contentPadding="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Rate Us"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                </androidx.cardview.widget.CardView>
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/rateFab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="8dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:src="@drawable/ic_star_rate_24"
+                    app:backgroundTint="@color/white"
+                    app:fabSize="mini"
+
+                    />
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/shareLL"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="10dp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="3dp"
+                    app:cardElevation="2dp"
+                    app:contentPadding="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Share"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                </androidx.cardview.widget.CardView>
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/shareFab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="8dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:src="@drawable/ic_share_24"
+                    app:backgroundTint="@color/white"
+                    app:fabSize="mini"
+
+                    />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/settingFab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/baseline_more_horiz_24"
+            app:backgroundTint="@color/black"
+            app:fabSize="normal"
+            app:tint="@color/white" />
+
+    </RelativeLayout>
+    </RelativeLayout>
+
+
+

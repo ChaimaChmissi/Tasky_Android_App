@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 class EmployeesAdapter(
     private var employees: List<Employee>,
     private val context: Context
+
 ) : RecyclerView.Adapter<EmployeesAdapter.EmployeeViewHolder>() {
 
     class EmployeeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -37,10 +38,40 @@ class EmployeesAdapter(
         holder.updateButton.setOnClickListener {
             // Open UpdateEmployeeActivity with the employee ID
             val intent = Intent(context, UpdateEmployeeActivity::class.java)
-            intent.putExtra("employee_id", employee.id)
+            intent.putExtra("employee_id", employee._id)
             context.startActivity(intent)
         }
+
+        holder.deleteButton.setOnClickListener {
+            // Call the deleteEmployee method from EmployeeRepository
+            val employeeId = employee._id
+            val employeeRepository = EmployeeRepository()
+
+            // Show a confirmation dialog before deleting
+            AlertDialog.Builder(context)
+                .setTitle("Delete Employee")
+                .setMessage("Are you sure you want to delete this employee?")
+                .setPositiveButton("Yes") { _, _ ->
+                    employeeRepository.deleteEmployee(employeeId,
+                        onSuccess = {
+                            // Handle successful deletion
+                            Toast.makeText(context, "Employee deleted successfully", Toast.LENGTH_SHORT).show()
+                            val updatedList = employees.toMutableList()
+                            updatedList.removeAt(position)
+                            refreshData(updatedList)
+                        },
+                        onError = { error ->
+                            // Handle deletion error
+                            Toast.makeText(context, "Error deleting employee: $error", Toast.LENGTH_SHORT).show()
+                        }
+                    )
+                }
+                .setNegativeButton("No", null)
+                .show()
+        }
     }
+
+
     override fun getItemCount(): Int {
         return employees.size
     }

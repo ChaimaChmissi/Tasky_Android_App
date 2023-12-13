@@ -29,23 +29,18 @@ class EmployeeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Set up SwipeRefreshLayout
+        binding.swipeRefreshLayout.setOnRefreshListener {
+            // Refresh your data here
+            fetchEmployees()
+        }
+
         binding.employeeRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         employeesAdapter = EmployeesAdapter(emptyList(), requireContext())
         binding.employeeRecyclerView.adapter = employeesAdapter
 
         // Fetch employees from the API using Retrofit
-        employeeApi.getEmployees(
-            { employees ->
-                Log.d("API Response", employees.toString())
-                requireActivity().runOnUiThread {
-                    employeesAdapter.refreshData(employees)
-                }
-            },
-            { error ->
-                Toast.makeText(requireContext(), "Error fetching employees: $error", Toast.LENGTH_SHORT)
-                    .show()
-            }
-        )
+        fetchEmployees()
 
         binding.addButton.setOnClickListener {
             val intent = Intent(requireContext(), AddEmployeeActivity::class.java)
@@ -70,5 +65,20 @@ class EmployeeFragment : Fragment() {
         }
 
         return employeesList
+    }
+
+    private fun fetchEmployees() {
+        employeeApi.getEmployees(
+            { employees ->
+                // Update UI or perform any other actions with the updated employee list
+                employeesAdapter.refreshData(employees)
+                binding.swipeRefreshLayout.isRefreshing = false // Stop the refreshing animation
+            },
+            { error ->
+                Toast.makeText(requireContext(), "Error fetching employees: $error", Toast.LENGTH_SHORT)
+                    .show()
+                binding.swipeRefreshLayout.isRefreshing = false // Stop the refreshing animation
+            }
+        )
     }
 }

@@ -30,8 +30,19 @@
                 android:text="Tasks' List"
                 android:layout_centerHorizontal="true"
                 android:textColor="@color/lavender"
+                android:visibility="gone"
                 android:layout_marginStart="18dp"
                 android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/textNoTasks"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="You have no tasks in this project."
+                android:visibility="gone"
+                android:textSize="16sp"
+                android:textColor="@android:color/black" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
@@ -39,7 +50,6 @@
                 android:layout_marginTop="50dp"
                 android:padding="16dp"
                 android:id="@+id/taskRecyclerView"/>
-
 
 
         </LinearLayout>

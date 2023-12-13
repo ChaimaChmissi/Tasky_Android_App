@@ -32,6 +32,10 @@
                 android:textColor="@color/lavender"
                 android:layout_marginStart="18dp"
                 android:textSize="24sp" />
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/swipeRefreshLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
@@ -39,7 +43,7 @@
                 android:layout_marginTop="50dp"
                 android:padding="16dp"
                 android:id="@+id/projectRecyclerView"/>
-
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 
         </LinearLayout>
@@ -48,6 +52,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

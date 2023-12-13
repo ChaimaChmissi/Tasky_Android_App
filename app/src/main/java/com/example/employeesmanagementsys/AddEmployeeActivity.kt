@@ -41,10 +41,8 @@ class AddEmployeeActivity : AppCompatActivity() {
                         // Employee added successfully
                         Toast.makeText(this, "Employee added successfully", Toast.LENGTH_SHORT).show()
 
-                        // Navigate back to the employee list activity
-                        val intent = Intent(this, EmployeeFragment::class.java)
-                        startActivity(intent)
-                        finish() // Optional: Finish the current activity if you don't want to go back to it
+                        // Navigate back to the employee list fragment
+                        onBackPressed()
                     },
                     onError = { errorMessage ->
                         // Handle the error, show a toast, log, or perform other error handling

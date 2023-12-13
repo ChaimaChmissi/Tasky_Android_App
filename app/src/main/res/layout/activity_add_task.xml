@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,14 +11,15 @@
 
     <TextView
         android:id="@+id/addTaskHead"
-        android:layout_width="201dp"
-        android:layout_height="75dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/poppins"
         android:text="Add New Task"
         android:textSize="24sp" />
+
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -34,6 +36,7 @@
         android:layout_height="60dp"
         android:layout_below="@id/addTaskHead"
         android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
         android:background="@drawable/lavender_border"
         android:fontFamily="@font/poppins"
         android:hint="Title..."
@@ -46,34 +49,62 @@
         android:layout_width="395dp"
         android:layout_height="165dp"
         android:layout_below="@id/TitleText"
-        android:layout_alignParentBottom="true"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="22dp"
-        android:layout_marginBottom="364dp"
         android:background="@drawable/lavender_border"
         android:fontFamily="@font/poppins"
-        android:hint=" Description..."
+        android:hint="Description..."
         android:maxLines="1"
         android:textSize="20sp" />
 
+    <TextView
+        android:layout_width="91dp"
+        android:layout_height="64dp"
+
+        android:layout_alignBottom="@+id/taskStatusSpinner"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="19dp"
+        android:layout_marginBottom="-97dp"
+        android:text="assigned To"
+        android:textColor="#ee99a3"/>
+
     <Spinner
-        android:id="@+id/task_spinner"
+        android:id="@+id/taskStatusSpinner"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="48dp"
-        android:layout_marginBottom="298dp"
+        android:layout_below="@id/DescriptionText"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
         android:backgroundTint="#935FE4" />
 
     <Spinner
-
-        android:id="@+id/task_spinner2"
+        android:id="@+id/assignedToSpinner"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="48dp"
-        android:layout_marginBottom="229dp"
+        android:layout_below="@id/taskStatusSpinner"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="12dp"
         android:backgroundTint="#7E41DF" />
 
+    <TextView
+        android:layout_width="91dp"
+        android:layout_height="64dp"
+
+        android:layout_alignStart="@+id/projectNameSpinner"
+        android:layout_alignBottom="@+id/assignedToSpinner"
+        android:layout_marginStart="19dp"
+        android:layout_marginBottom="-97dp"
+        android:text="Projects"
+        android:textColor="#ee99a3"/>
+
+    <Spinner
+        android:id="@+id/projectNameSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_below="@id/assignedToSpinner"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="12dp"
+        android:backgroundTint="#7E41DF" />
 
 </RelativeLayout>

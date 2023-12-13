@@ -5,17 +5,21 @@
     <group
         android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_project"
+            android:id="@+id/nav_dashbord"
             android:icon="@drawable/baseline_home_24"
+            android:title="Dashboard"/>
+        <item
+            android:id="@+id/nav_project"
+            android:icon="@drawable/baseline_file_copy_24"
             android:title="Projects"/>
         <item
             android:id="@+id/nav_employee"
             android:icon="@drawable/baseline_people_24"
             android:title="Employees"/>
         <item
-            android:id="@+id/nav_task"
-            android:icon="@drawable/baseline_task_alt_24"
-            android:title="Tasks"/>
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/baseline_person_outline_24"
+            android:title="Profile"/>
 
     </group>
 

@@ -27,10 +27,14 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/poppins"
-                android:text="Employees' Liste"
+                android:text="Employees' List"
                 android:textColor="@color/lavender"
                 android:layout_marginStart="18dp"
                 android:textSize="24sp" />
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/swipeRefreshLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
              <androidx.recyclerview.widget.RecyclerView
                  android:layout_width="match_parent"
@@ -38,6 +42,7 @@
                  android:layout_marginTop="50dp"
                  android:padding="16dp"
                  android:id="@+id/employeeRecyclerView"/>
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
             <!-- Your content goes here
             <LinearLayout
